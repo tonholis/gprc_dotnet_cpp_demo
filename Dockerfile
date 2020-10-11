@@ -37,7 +37,5 @@ RUN mkdir build && cd build \
 # Build our final docker image
 FROM ubuntu:19.10 as final
 WORKDIR /app
-COPY --from=buildServer $PKG_INSTALL_DIR/ $PKG_INSTALL_DIR/
 COPY --from=buildServer /app/build/server ./
-
 CMD [ "./server" ]
